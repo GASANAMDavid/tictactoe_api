@@ -18,6 +18,9 @@ gem 'puma', '~> 5.0'
 #use dotenv for env variables
 gem 'dotenv-rails' 
 
+#Use travis for continous integration
+gem 'travis'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
