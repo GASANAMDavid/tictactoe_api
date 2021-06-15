@@ -27,7 +27,7 @@ development:
   host: <%=ENV.fetch("HOST") %>
   port: <%= ENV.fetch("PORT") %>
   user: <%= ENV.fetch("USER") %>
-  password : <%= ENV.fetch("PASSWORD")
+  password: <%= ENV.fetch("PASSWORD")
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -65,7 +65,7 @@ test:
   host: <%=ENV.fetch("HOST") %>
   port: <%= ENV.fetch("PORT") %>
   user: <%= ENV.fetch("USER") %>
-  password : <%= ENV.fetch("PASSWORD")
+  password: <%= ENV.fetch("PASSWORD")
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -89,4 +89,6 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['MY_APP_DATABASE_URL'] %>
+  database: tictactoe_api_production
+  username: tictactoe_api
+  password: <%= ENV['TICTACTOE_API_DATABASE_PASSWORD'] %>
