@@ -21,6 +21,8 @@ gem 'dotenv-rails'
 #Use travis for continous integration
 gem 'travis'
 
+gem 'nokogiri', '~>1.8.5'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
