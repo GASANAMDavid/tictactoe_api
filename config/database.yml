@@ -89,6 +89,4 @@ test:
 #
 production:
   <<: *default
-  database: tictactoe_api_production
-  username: tictactoe_api
-  password: <%= ENV['TICTACTOE_API_DATABASE_PASSWORD'] %>
+  url: <%= ENV['MY_APP_DATABASE_URL'] %>
