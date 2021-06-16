@@ -1,3 +1,16 @@
+GIT
+  remote: https://github.com/gasanamdavid/TicTacToe
+  revision: 866aee03c1b6ca7dc289fca480cd28bbe7d1f699
+  branch: create_gem
+  specs:
+    TicTacToe (1.0.0)
+      bundler (~> 2.2.16)
+      dotenv (~> 2.1, >= 2.1.1)
+      i18n (~> 1.8, >= 1.8.10)
+      rake (~> 13.0, >= 13.0.3)
+      rspec (~> 3.4)
+      rubocop (~> 1.17, >= 1.17.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -61,6 +74,7 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     addressable (2.4.0)
+    ast (2.4.2)
     backports (3.21.0)
     bootsnap (1.7.5)
       msgpack (~> 1.0)
@@ -122,6 +136,9 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
+    parallel (1.20.1)
+    parser (3.0.1.1)
+      ast (~> 2.4.1)
     pg (1.2.3)
     puma (5.3.2)
       nio4r (~> 2.0)
@@ -157,10 +174,17 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (~> 1.0)
+    rainbow (3.0.0)
     rake (13.0.3)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    regexp_parser (2.1.1)
+    rexml (3.2.5)
+    rspec (3.10.0)
+      rspec-core (~> 3.10.0)
+      rspec-expectations (~> 3.10.0)
+      rspec-mocks (~> 3.10.0)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -178,6 +202,18 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
+    rubocop (1.17.0)
+      parallel (~> 1.10)
+      parser (>= 3.0.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml
+      rubocop-ast (>= 1.7.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.7.0)
+      parser (>= 3.0.1.1)
+    ruby-progressbar (1.11.0)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -200,6 +236,7 @@ GEM
       ethon (>= 0.8.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (2.0.0)
     websocket (1.2.9)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
@@ -211,6 +248,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  TicTacToe!
   bootsnap (>= 1.4.4)
   byebug
   dotenv-rails
