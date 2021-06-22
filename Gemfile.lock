@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/gasanamdavid/TicTacToe
-  revision: 438195d70877f422308976ffe0f90b9eba30b758
+  revision: 1e98dce2b2970748674fc08d5e591d3046163363
   branch: create_gem
   specs:
-    TicTacToe (1.1.4)
+    TicTacToe (1.1.5)
       bundler (~> 2.2.16)
       dotenv (~> 2.1, >= 2.1.1)
       i18n (~> 1.8, >= 1.8.10)
@@ -214,6 +214,8 @@ GEM
     rubocop-ast (1.7.0)
       parser (>= 3.0.1.1)
     ruby-progressbar (1.11.0)
+    shoulda-matchers (4.5.1)
+      activesupport (>= 4.2.0)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -248,7 +250,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  TicTacToe (= 1.1.4)!
+  TicTacToe (= 1.1.5)!
   bootsnap (>= 1.4.4)
   byebug
   dotenv-rails
@@ -260,6 +262,7 @@ DEPENDENCIES
   rails (~> 6.1.3, >= 6.1.3.2)
   rspec-rails
   rubocop (~> 1.17.0)
+  shoulda-matchers
   spring
   travis
   tzinfo-data

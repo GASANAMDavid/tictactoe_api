@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.describe 'Simple Test ' do
   it 'tests truthy' do
     expect(true).to eq(true)
