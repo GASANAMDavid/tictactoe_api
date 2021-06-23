@@ -12,10 +12,9 @@ class GamesController < ApplicationController
       game.save
       render json: game, status: :created
     end
-    
   end
 
-  GAME_PARAMS = %i[language player_name symbol game_mode board].freeze
+  GAME_PARAMS = %i[language player_name symbol game_mode].freeze
 
   def game_params
     params.require(:game).permit(GAME_PARAMS)

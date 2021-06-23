@@ -250,7 +250,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  TicTacToe (= 1.1.5)!
+  TicTacToe (~> 1.1.5)!
   bootsnap (>= 1.4.4)
   byebug
   dotenv-rails

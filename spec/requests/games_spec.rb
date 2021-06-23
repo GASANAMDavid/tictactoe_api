@@ -10,20 +10,20 @@ RSpec.describe GamesController do
   describe '#create' do
     let(:game_params) do
       {
-        language: 'en',
-        player_name: 'David',
-        symbol: 'X',
-        board_size: 3,
-        game_mode: 1
+        "language": 'fr',
+        "player_name": 'David',
+        "game_mode": '1',
+        "board_size": '3',
+        "symbol": 'X'
       }
     end
     it 'returns success response' do
-      post '/games', params: game_params
+      post '/games', params: game_params, as: :json
       expect(response).to have_http_status(:created)
     end
 
     it 'creates a new game record' do
-      expect { post '/games', params: game_params }.to change { Game.count }.by(1)
+      expect { post '/games', params: game_params, as: :json }.to change { Game.count }.by(1)
     end
   end
 end
