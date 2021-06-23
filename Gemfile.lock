@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gasanamdavid/TicTacToe
-  revision: 1e98dce2b2970748674fc08d5e591d3046163363
+  revision: 987e59b8fc2ece435631490c3674cf61c27d71cd
   branch: create_gem
   specs:
     TicTacToe (1.1.5)
