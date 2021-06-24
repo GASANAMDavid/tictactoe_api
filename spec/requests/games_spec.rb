@@ -26,4 +26,29 @@ RSpec.describe GamesController do
       expect { post '/games', params: game_params, as: :json }.to change { Game.count }.by(1)
     end
   end
+
+  describe '#play' do
+    let(:play_params) do
+      {
+        "move": '1',
+        "current_board": [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']]
+      }
+    end
+
+    it 'returns play ongoing if not finished' do
+      put '/games/1/play', params: play_params, as: :json
+      expect(response.parsed_body['state']).to eq('Ongoing')
+    end
+
+    it 'returns draw message if the game is tied' do
+      play_params['current_board'] = [
+        %w[- O X],
+        %w[X X O],
+        %w[O X O]
+      ]
+      put '/games/1/play', params: play_params, as: :json
+
+      expect(response.parsed_body['state']).to eq("It's a draw")
+    end
+  end
 end

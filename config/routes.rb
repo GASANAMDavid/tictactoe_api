@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :games, only: %i[index create update]
-  put '/games/:id/play', controller: 'games', action: 'play'
+  resources :games, only: %i[index create] do
+    put :play, on: :member
+  end
 end
