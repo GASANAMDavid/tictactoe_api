@@ -14,7 +14,14 @@ class GamesController < ApplicationController
     end
   end
 
+  def play
+    p params[:id]
+    render json: { status: 'success' }
+  end
+
   GAME_PARAMS = %i[language player_name symbol game_mode].freeze
+
+  private
 
   def game_params
     params.require(:game).permit(GAME_PARAMS)
