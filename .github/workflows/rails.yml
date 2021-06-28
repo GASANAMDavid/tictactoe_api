@@ -51,7 +51,7 @@ jobs:
           POSTGRES_PASSWORD: ENV['POSTGRES_PASSWORD']
         run: |
           bin/rails db:setup
-          bundle exec rspec
+          rspec
       - name: Run tests
         env:
           PGHOST: localhost
