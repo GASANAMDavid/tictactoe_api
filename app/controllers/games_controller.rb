@@ -6,7 +6,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    board = GameSetUp.create_board(params[:board_size].to_i)
+    board = TicTacToe::GameSetUp.create_board(params[:board_size].to_i)
     game = Game.new(game_params.merge(board: board.board))
     if game.valid?
       game.save
@@ -26,7 +26,7 @@ class GamesController < ApplicationController
     symbol = game_record.symbol
     board_size = params[:current_board].length
     move = params[:move].to_i
-    playing_board = Board.new(board_size)
+    playing_board = TicTacToe::Board.new(board_size)
     playing_board.board = params[:current_board]
     playing_board.apply_move(symbol, move)
     response[:state] = "It's a draw" if playing_board.board_state(symbol) == 'Tie'
