@@ -50,8 +50,8 @@ jobs:
           POSTGRES_USER:  ENV['POSTGRES_USER']
           POSTGRES_PASSWORD: ENV['POSTGRES_PASSWORD']
         run: |
-          cp config/database.ci.yml config/database.yml
-          rake db:create db:migrate
+          bundle exec rake db:create db:schema:load --trace
+          bundle exec rake db:migrate
       - name: Run tests
         env:
           PGHOST: localhost
