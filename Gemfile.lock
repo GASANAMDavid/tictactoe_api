@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/gasanamdavid/TicTacToe
-  revision: 40556decaca3415156bd1b3bb7e406426091e544
+  revision: c19f0e1f4cd7ed90c9d3d388a1de426355bef627
   specs:
-    TicTacToe (1.2.1)
+    TicTacToe (1.2.2)
       bundler (~> 2.2.16)
       dotenv (~> 2.1, >= 2.1.1)
       i18n (~> 1.8, >= 1.8.10)
@@ -249,7 +249,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  TicTacToe (~> 1.2.1)!
+  TicTacToe (~> 1.2.2)!
   bootsnap (>= 1.4.4)
   byebug
   dotenv-rails
