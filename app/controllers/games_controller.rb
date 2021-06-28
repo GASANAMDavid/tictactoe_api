@@ -24,11 +24,9 @@ class GamesController < ApplicationController
     }
     game_record = Game.find(params[:id])
     symbol = game_record.symbol
-    board_size = params[:current_board].length
     move = params[:move].to_i
-    playing_board = TicTacToe::Board.new(board_size)
-    playing_board.board = params[:current_board]
-    playing_board.apply_move(symbol, move)
+    engine = TicTacToe::WebEngine.new(params[:current_board])
+    
     response[:state] = "It's a draw" if playing_board.board_state(symbol) == 'Tie'
 
     render json: response

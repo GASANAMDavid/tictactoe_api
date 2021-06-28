@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gasanamdavid/TicTacToe
-  revision: c19f0e1f4cd7ed90c9d3d388a1de426355bef627
+  revision: e005906177bc1944e1ee2ee1eb4ad43ae4a44d80
   specs:
     TicTacToe (1.2.2)
       bundler (~> 2.2.16)
