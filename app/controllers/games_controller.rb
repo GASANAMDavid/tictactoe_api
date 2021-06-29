@@ -15,20 +15,19 @@ class GamesController < ApplicationController
   end
 
   def play
-    # retrieve game from database with params[:id]
-    # instantiate game engine from TTT gem
-    # play the move on the game object
-    # return the result
     response = {
-      state: 'Ongoing'
+      state: 'Ongoing',
+      board: params[:current_board]
     }
     game_record = Game.find(params[:id])
-    symbol = game_record.symbol
-    move = params[:move].to_i
-    engine = TicTacToe::WebEngine.new(params[:current_board])
-    
-    response[:state] = "It's a draw" if playing_board.board_state(symbol) == 'Tie'
-
+    opponent_player = TicTacToe::OpponentType.when_game_mode_is(game_record.game_mode)
+    engine = TicTacToe::WebEngine.new(game_record.board, game_record.player_name, opponent_player)
+    engine.play(game_record.symbol, params[:move].to_i)
+    game_record.board = engine.board
+    game_record.save
+    result = engine.check_status(game_record.symbol)
+    response[:state] = result unless result.nil?
+    response[:board] = engine.board
     render json: response
   end
 
