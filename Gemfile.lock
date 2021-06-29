@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/gasanamdavid/TicTacToe
-  revision: 25d1dfc2950e2dda0b98c82e7e9fd859a33355bc
+  revision: 245a2e83a7f087fda0b4447151c76cb951408d9a
   specs:
-    TicTacToe (1.3.1)
+    tictactoe (1.3.1)
       bundler (~> 2.2.16)
       dotenv (~> 2.1, >= 2.1.1)
       i18n (~> 1.8, >= 1.8.10)
@@ -112,6 +112,8 @@ GEM
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     json (2.5.1)
+    json-schema (2.8.1)
+      addressable (>= 2.4)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.5.1)
@@ -201,6 +203,19 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
+    rswag (2.4.0)
+      rswag-api (= 2.4.0)
+      rswag-specs (= 2.4.0)
+      rswag-ui (= 2.4.0)
+    rswag-api (2.4.0)
+      railties (>= 3.1, < 7.0)
+    rswag-specs (2.4.0)
+      activesupport (>= 3.1, < 7.0)
+      json-schema (~> 2.2)
+      railties (>= 3.1, < 7.0)
+    rswag-ui (2.4.0)
+      actionpack (>= 3.1, < 7.0)
+      railties (>= 3.1, < 7.0)
     rubocop (1.17.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
@@ -249,7 +264,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  TicTacToe (~> 1.3.1)!
   bootsnap (>= 1.4.4)
   byebug
   dotenv-rails
@@ -260,9 +274,13 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 6.1.3, >= 6.1.3.2)
   rspec-rails
+  rswag
+  rswag-api
+  rswag-ui
   rubocop (~> 1.17.0)
   shoulda-matchers
   spring
+  tictactoe (~> 1.3.1)!
   travis
   tzinfo-data
 

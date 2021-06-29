@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.1'
-gem 'TicTacToe', '~>1.3.1', git: 'https://github.com/gasanamdavid/TicTacToe'
+gem 'tictactoe', '~>1.3.1', git: 'https://github.com/gasanamdavid/TicTacToe'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
@@ -21,6 +21,10 @@ gem 'dotenv-rails'
 
 # Use travis for continous integration
 gem 'travis'
+
+gem 'rswag'
+gem 'rswag-api'
+gem 'rswag-ui'
 
 gem 'nokogiri', '~>1.8.5'
 
