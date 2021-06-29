@@ -19,7 +19,7 @@ class GamesController < ApplicationController
       state: 'Ongoing',
       board: params[:current_board]
     }
-    
+
     game_record = Game.find(params[:id])
     opponent_player = TicTacToe::OpponentType.when_game_mode_is(game_record.game_mode)
     engine = TicTacToe::WebEngine.new(game_record.board, game_record.player_name, opponent_player)
