@@ -45,19 +45,19 @@ jobs:
       - name: Setup test database
         env:
           RAILS_ENV: test
-          PGHOST: localhost
-          POSTGRES_DB: ENV['TICTACTOE_DATABASE_URL']
+          POSTGRES_HOST: localhost
           POSTGRES_USER: ENV['POSTGRES_USER']
           POSTGRES_PASSWORD: ENV['POSTGRES_PASSWORD']
+          POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
         run: |
-          bundle exec rake db:create db:schema:load --trace
-          bundle exec rake db:migrate
+          cp config/database.ci.yml config/database.yml
+          bundle exec rails db:create
+          bundle exec rails db:schema:load
       - name: Run tests
         env:
-          PGHOST: localhost
-          POSTGRES_DB: ENV['TICTACTOE_DATABASE_URL']
+          POSTGRES_HOST: localhost
           POSTGRES_USER: ENV['POSTGRES_USER']
           POSTGRES_PASSWORD: ENV['POSTGRES_PASSWORD']
-          PGPORT: ${{ job.services.postgres.ports[5432] }}
+          POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
           RAILS_ENV: test
         run: rspec
