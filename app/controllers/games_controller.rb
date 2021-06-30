@@ -8,7 +8,6 @@ class GamesController < ApplicationController
   def create
     board = TicTacToe::GameSetUp.create_board(params[:board_size].to_i)
     game = Game.new(game_params.merge(board: board.board))
-
     if game.valid?
       game.save
       render json: game, status: :created
