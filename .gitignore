@@ -32,4 +32,5 @@
 .env.development
 .env.production
 .env.test
-.travis.yml
+# .travis.yml
+rails.yml
