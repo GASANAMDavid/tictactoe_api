@@ -7,4 +7,3 @@ services:
   - postgresql
 before_script:
   - psql -c 'create database travis_ci_test;'
-  - psql -c "CREATE USER david WITH PASSWORD 'password123';"
