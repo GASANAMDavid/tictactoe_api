@@ -21,10 +21,10 @@ RSpec.describe 'api/games', type: :request do
         run_test!
       end
 
-      # response '422', 'invalid request' do
-      #   let(:game) { { player_name: 'David', game_mode: 2, language: 'en', board_size: 3 } }
-      #   run_test!
-      # end
+      response '422', 'invalid request' do
+        let(:game) { { player_name: 'David', game_mode: 2, language: 'en', board_size: 3 } }
+        pending("I'll get back on this after finishing request validations")
+      end
     end
   end
 
