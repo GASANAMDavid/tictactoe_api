@@ -1,0 +1,66 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/games":
+    post:
+      summary: Create a new game
+      tags:
+      - games
+      parameters: []
+      responses:
+        '201':
+          description: blog created
+        '204':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                player_name:
+                  type: string
+                symbol:
+                  type: string
+                game_mode:
+                  type: integer
+                language:
+                  type: string
+                board_size:
+                  type: integer
+              required:
+              - player_name
+              - game_mode
+              - language
+              - board_size
+              - symbol
+  "/games/1/play":
+    put:
+      summary: Plays the game registered on a record with id 1
+      parameters: []
+      responses:
+        '201':
+          description: move applied
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  in: path
+                move:
+                  type: string
+                  in: body
+              required:
+              - id
+              - move
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com

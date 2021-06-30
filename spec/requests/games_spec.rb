@@ -25,6 +25,12 @@ RSpec.describe GamesController do
     it 'creates a new game record' do
       expect { post '/games', params: game_params, as: :json }.to change { Game.count }.by(1)
     end
+
+    it 'throws an error if there is a missing parameter' do
+      game_params[:player_name] = ''
+      post '/games', params: game_params, as: :json
+      expect(response.parsed_body['errors']['player_name']).to eq('parameter is required')
+    end
   end
 
   describe '#play' do
