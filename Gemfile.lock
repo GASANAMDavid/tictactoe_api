@@ -276,6 +276,7 @@ DEPENDENCIES
   rspec-rails
   rswag
   rswag-api
+  rswag-specs
   rswag-ui
   rubocop (~> 1.17.0)
   shoulda-matchers
