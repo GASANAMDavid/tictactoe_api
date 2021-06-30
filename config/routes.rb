@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  resources :games, only: %i[index create update]
-  put '/games/:id/play', controller: 'games', action: 'play'
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
+  resources :games, only: %i[index create] do
+    put :play, on: :member
+  end
 end
