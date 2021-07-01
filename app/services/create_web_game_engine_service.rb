@@ -8,7 +8,6 @@ class CreateWebGameEngineService < ApplicationService
   end
 
   def call
-    opponent_player = TicTacToe::OpponentType.when_game_mode_is(game_record.game_mode)
-    TicTacToe::WebEngine.new(game_record.board, game_record.player_name, opponent_player)
+    TicTacToe::WebEngine.new(game_record.board, game_record.player_name, game_record.game_mode)
   end
 end
