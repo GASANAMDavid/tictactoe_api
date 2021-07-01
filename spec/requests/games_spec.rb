@@ -28,6 +28,10 @@ RSpec.describe GamesController do
   end
 
   describe '#play' do
+    let(:game) { create(:game) }
+    let(:find_game) { instance_double(FindGameService) }
+    let(:game_engine) { instance_double(CreateWebGameEngineService) }
+    let(:engine) { instance_double(TicTacToe::WebEngine) }
     let(:play_params) do
       {
         "move": '1'
@@ -44,6 +48,8 @@ RSpec.describe GamesController do
     end
     before do
       post '/games', params: game_params, as: :json
+      allow(game_engine).to receive(:call).and_return(engine)
+      allow(find_game).to receive(:call).and_return(game)
     end
 
     it 'returns play ongoing if not finished' do
