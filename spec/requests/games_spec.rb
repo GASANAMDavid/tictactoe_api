@@ -16,7 +16,7 @@ RSpec.describe GamesController do
     let(:game_params) do
       {
         "language": 'fr',
-        "player_name": 'David',
+        "player_name": 'Gasana',
         "game_mode": 2,
         "board_size": 3,
         "symbol": 'X'
