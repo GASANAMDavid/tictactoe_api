@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/gasanamdavid/TicTacToe
-  revision: 245a2e83a7f087fda0b4447151c76cb951408d9a
+  revision: a1e0fe2f26c4632565538961a7e3d666ae7e480e
   specs:
-    tictactoe (1.3.1)
+    tictactoe (1.3.2)
       bundler (~> 2.2.16)
       dotenv (~> 2.1, >= 2.1.1)
       i18n (~> 1.8, >= 1.8.10)
@@ -281,7 +281,7 @@ DEPENDENCIES
   rubocop (~> 1.17.0)
   shoulda-matchers
   spring
-  tictactoe (~> 1.3.1)!
+  tictactoe (~> 1.3.2)!
   travis
   tzinfo-data
 

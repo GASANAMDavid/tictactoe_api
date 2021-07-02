@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe GamesController do
+  let(:game) { create(:game) }
   describe '#index' do
     it 'returns success rensponse' do
       get '/games'
@@ -8,6 +9,10 @@ RSpec.describe GamesController do
     end
   end
   describe '#create' do
+    let(:create_game) { instance_double(CreateGameService) }
+    before do
+      allow(create_game).to receive(:call).and_return(game)
+    end
     let(:game_params) do
       {
         "language": 'fr',
@@ -28,6 +33,8 @@ RSpec.describe GamesController do
   end
 
   describe '#play' do
+    let(:find_game) { instance_double(FindGameService) }
+    let(:game_engine) { instance_double(CreateWebGameEngineService) }
     let(:play_params) do
       {
         "move": '1'
