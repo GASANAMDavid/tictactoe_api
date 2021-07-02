@@ -73,7 +73,7 @@ RSpec.describe GamesController do
     end
     let(:game) { create(:game) }
     it 'returns play ongoing if not finished' do
-      put "/games/#{game.id}/play", params: play_params, as: :json
+      put "/games/#{game.id}/play", params: {"move": 1}, as: :json
       expect(response.parsed_body['state']).to eq('Ongoing')
     end
 
@@ -113,8 +113,7 @@ RSpec.describe GamesController do
       end
 
       it 'validates the player move' do
-        id = response.parsed_body['id']
-        put "/games/#{id}/play", params: { "move": 10 }, as: :json
+        put "/games/#{game.id}/play", params: { "move": 10 }, as: :json
         expect(response.parsed_body['errors']).to eq('Invalid move')
       end
     end
