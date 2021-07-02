@@ -60,7 +60,7 @@ RSpec.describe GamesController do
 
   describe '#play' do
     let(:find_game) { instance_double(FindGameService) }
-    let(:game_engine) { instance_double(CreateWebGameEngineService) }
+    let(:create_game_engine) { instance_double(CreateWebGameEngineService) }
     let(:web_engine) { instance_double(TicTacToe::WebEngine) }
     let(:game_params) do
       {
