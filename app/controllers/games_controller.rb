@@ -6,7 +6,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    game = CreateGameService.call(game_params, params[:board_size].to_i)
+    game = CreateGameService.call(game_params, params[:board_size])
     if game.valid?
       game.save
       render json: game, status: :created
