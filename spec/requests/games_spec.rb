@@ -46,6 +46,15 @@ RSpec.describe GamesController do
         post '/games', params: game_params, as: :json
         expect(response.parsed_body['errors']).to eq('no implicit conversion of String into Integer')
       end
+
+      it 'validates the game_mode to either be 1 or 2' do
+        game_params[:game_mode] = 3
+        post '/games', params: game_params, as: :json
+        expect(response.parsed_body['errors']).to eq('game_mode' => ['is not included in the list'])
+        game_params[:game_mode] = 2
+        post '/games', params: game_params, as: :json
+        expect(response).to have_http_status(:created)
+      end
     end
   end
 
@@ -95,8 +104,12 @@ RSpec.describe GamesController do
 
     it 'returns play ongoing if not finished' do
       id = response.parsed_body['id']
+<<<<<<< HEAD
       put "/games/#{id}/play", params: {"move": 1}, as: :json
 >>>>>>> 9a02789 (added validation of all endpoints)
+=======
+      put "/games/#{id}/play", params: { "move": 1 }, as: :json
+>>>>>>> f55fbbd (validates the game mode to either ve <1> or <2>)
       expect(response.parsed_body['state']).to eq('Ongoing')
     end
 
