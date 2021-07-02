@@ -17,8 +17,8 @@ RSpec.describe GamesController do
       {
         "language": 'fr',
         "player_name": 'Manzi',
-        "game_mode": 2,
-        "board_size": 3,
+        "game_mode": '2',
+        "board_size": '3',
         "symbol": 'X'
       }
     end
@@ -66,8 +66,8 @@ RSpec.describe GamesController do
       {
         "language": 'fr',
         "player_name": 'Manzi',
-        "game_mode": 2,
-        "board_size": 3,
+        "game_mode": '2',
+        "board_size": '3',
         "symbol": 'X'
       }
     end
