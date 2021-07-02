@@ -62,6 +62,7 @@ RSpec.describe GamesController do
 <<<<<<< HEAD
 <<<<<<< HEAD
     let(:find_game) { instance_double(FindGameService) }
+<<<<<<< HEAD
     let(:game_engine) { instance_double(CreateWebGameEngineService) }
 <<<<<<< HEAD
 =======
@@ -80,6 +81,9 @@ RSpec.describe GamesController do
       }
     end
 =======
+=======
+    let(:create_game_engine) { instance_double(CreateWebGameEngineService) }
+>>>>>>> be5ae70 (descriptive naming)
     let(:web_engine) { instance_double(TicTacToe::WebEngine) }
 >>>>>>> 9a02789 (added validation of all endpoints)
     let(:game_params) do
@@ -98,7 +102,7 @@ RSpec.describe GamesController do
 =======
     before do
       post '/games', params: game_params, as: :json
-      allow(game_engine).to receive(:call).and_return(web_engine)
+      allow(create_game_engine).to receive(:call).and_return(web_engine)
       allow(find_game).to receive(:call).and_return(game)
     end
 
