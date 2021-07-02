@@ -41,12 +41,6 @@ RSpec.describe GamesController do
                                                        'symbol' => ["can't be blank"] })
       end
 
-      it 'validates board size to be integer' do
-        game_params[:board_size] = 'X'
-        post '/games', params: game_params, as: :json
-        expect(response.parsed_body['errors']).to eq('no implicit conversion of String into Integer')
-      end
-
       it 'validates the game_mode to either be 1 or 2' do
         game_params[:game_mode] = 3
         post '/games', params: game_params, as: :json
