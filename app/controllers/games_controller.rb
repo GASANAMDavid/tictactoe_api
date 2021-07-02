@@ -38,4 +38,20 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(GAME_PARAMS)
   end
+
+  def play_game(engine, game_record)
+    engine.play(game_record.symbol, params[:move].to_i)
+    game_record.board = engine.board
+    game_record.save
+  end
+
+  def get_response(engine, game_record)
+    response = {
+      state: 'Ongoing'
+    }
+    result = engine.check_status(game_record.symbol)
+    response[:state] = result unless result.nil?
+    response[:board] = game_record.board
+    response
+  end
 end
