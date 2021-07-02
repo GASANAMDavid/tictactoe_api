@@ -4,6 +4,6 @@ FactoryBot.define do
     player_name { 'David' }
     symbol { 'X' }
     board { [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']] }
-    game_mode { 1 }
+    game_mode { 2 }
   end
 end
