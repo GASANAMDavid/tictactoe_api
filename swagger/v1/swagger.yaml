@@ -1,0 +1,66 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/games":
+    post:
+      summary: Create a new game
+      tags:
+      - games
+      parameters: []
+      responses:
+        '201':
+          description: game created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                player_name:
+                  type: string
+                symbol:
+                  type: string
+                game_mode:
+                  type: integer
+                language:
+                  type: string
+                board_size:
+                  type: integer
+              required:
+              - player_name
+              - game_mode
+              - language
+              - board_size
+              - symbol
+  "/games/{id}/play":
+    put:
+      summary: Plays the game registered on a record with id ./spec/requests/api/games_spec.rb[1:2:1]
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: move applied
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                move:
+                  type: string
+              required:
+              - move
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000

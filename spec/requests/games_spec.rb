@@ -42,35 +42,19 @@ RSpec.describe GamesController do
         "symbol": 'X'
       }
     end
-    before do
-      post '/games', params: game_params, as: :json
-    end
-
+    let(:game) { create(:game) }
     it 'returns play ongoing if not finished' do
-      id = response.parsed_body['id']
-      put "/games/#{id}/play", params: play_params, as: :json
+      put "/games/#{game.id}/play", params: play_params, as: :json
       expect(response.parsed_body['state']).to eq('Ongoing')
     end
 
     context 'tests if there is a draw' do
-      let(:moves) do
-        [{
-          "move": '1'
-        }, {
-          "move": '4'
-        }, {
-          "move": '3'
-        }, {
-          "move": '8'
-        }, {
-          "move": '9'
-        }]
-      end
       it 'returns draw message if the game is tied' do
-        id = response.parsed_body['id']
-        moves.each do |play_params|
-          put "/games/#{id}/play", params: play_params, as: :json
-        end
+        game.board = [['-', 'O', 'X'],
+                      %w[X O O],
+                      %w[O X X]]
+        game.save
+        put "/games/#{game.id}/play", params: { "move": '1' }, as: :json
         expect(response.parsed_body['state']).to eq("It's a Draw")
       end
     end
@@ -84,10 +68,9 @@ RSpec.describe GamesController do
           "move": '4'
         }]
       end
-      it 'returns draw message if the game is tied' do
-        id = response.parsed_body['id']
+      it 'returns winner message if the game is won' do
         moves.each do |play_params|
-          put "/games/#{id}/play", params: play_params, as: :json
+          put "/games/#{game.id}/play", params: play_params, as: :json
         end
         expect(response.parsed_body['state']).to eq('Intelligent Computer won the game')
       end
