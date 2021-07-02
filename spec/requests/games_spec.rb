@@ -16,9 +16,9 @@ RSpec.describe GamesController do
     let(:game_params) do
       {
         "language": 'fr',
-        "player_name": 'Manzi',
-        "game_mode": '2',
-        "board_size": '3',
+        "player_name": 'Gasana',
+        "game_mode": 2,
+        "board_size": 3,
         "symbol": 'X'
       }
     end
@@ -39,6 +39,12 @@ RSpec.describe GamesController do
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.parsed_body['errors']).to eq({ 'player_name' => ["can't be blank"],
                                                        'symbol' => ["can't be blank"] })
+      end
+
+      it 'validates board size to be integer' do
+        game_params[:board_size] = 'X'
+        post '/games', params: game_params, as: :json
+        expect(response.parsed_body['errors']).to eq('no implicit conversion of String into Integer')
       end
 
       it 'validates the game_mode to either be 1 or 2' do
@@ -84,8 +90,8 @@ RSpec.describe GamesController do
       {
         "language": 'fr',
         "player_name": 'Manzi',
-        "game_mode": '2',
-        "board_size": '3',
+        "game_mode": 2,
+        "board_size": 3,
         "symbol": 'X'
       }
     end
