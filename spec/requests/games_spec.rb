@@ -33,8 +33,15 @@ RSpec.describe GamesController do
   end
 
   describe '#play' do
+<<<<<<< HEAD
     let(:find_game) { instance_double(FindGameService) }
     let(:game_engine) { instance_double(CreateWebGameEngineService) }
+=======
+    let(:game) { create(:game) }
+    let(:find_game) { instance_double(FindGameService) }
+    let(:game_engine) { instance_double(CreateWebGameEngineService) }
+    let(:engine) { instance_double(TicTacToe::WebEngine) }
+>>>>>>> 8d4a796 (mocking out the services classes in tests)
     let(:play_params) do
       {
         "move": '1'
