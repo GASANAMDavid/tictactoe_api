@@ -1,20 +1,7 @@
 GIT
   remote: https://github.com/gasanamdavid/TicTacToe
-<<<<<<< HEAD
-<<<<<<< HEAD
-  revision: 7252dbac6b0e7ff07db8f4759b95bb1b9ed00d42
   specs:
     tictactoe (1.4.0)
-=======
-  revision: a1e0fe2f26c4632565538961a7e3d666ae7e480e
-  specs:
-    tictactoe (1.3.2)
->>>>>>> 89d84d1 (after refactoring the gem to provide a single interface to the API)
-=======
-  revision: 7252dbac6b0e7ff07db8f4759b95bb1b9ed00d42
-  specs:
-    tictactoe (1.4.0)
->>>>>>> 9a02789 (added validation of all endpoints)
       bundler (~> 2.2.16)
       dotenv (~> 2.1, >= 2.1.1)
       i18n (~> 1.8, >= 1.8.10)
@@ -293,7 +280,11 @@ DEPENDENCIES
   rubocop (~> 1.17.0)
   shoulda-matchers
   spring
+<<<<<<< HEAD
   tictactoe (~> 1.4.0)!
+=======
+  tictactoe (~> 1.3.2)!
+>>>>>>> 89d84d1 (after refactoring the gem to provide a single interface to the API)
   travis
   tzinfo-data
 
