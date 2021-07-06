@@ -109,7 +109,7 @@ RSpec.describe GamesController do
       it 'validates the game id' do
         id = 0
         put "/games/#{id}/play", params: { "move": 1 }, as: :json
-        expect(response.parsed_body['errors']).to eq("Could not find Game with 'id'=#{id}")
+        expect(response.parsed_body['errors']).to eq("Couldn't find Game with 'id'=#{id}")
       end
 
       it 'validates the player move' do
