@@ -6,6 +6,9 @@ class FindGameService < ApplicationService
   end
 
   def call
-    Game.find(game_id)
+    game = Game.find_by id: game_id
+    raise StandardError, "Could not find Game with 'id'=#{game_id}" unless game.present?
+
+    game
   end
 end

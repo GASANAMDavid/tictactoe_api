@@ -6,18 +6,26 @@ class GamesController < ApplicationController
   end
 
   def create
-    game = CreateGameService.call(game_params, params[:board_size].to_i)
+    game = CreateGameService.call(game_params, params[:board_size])
     if game.valid?
       game.save
       render json: game, status: :created
+    else
+      render json: { "errors": game.errors }, status: :unprocessable_entity
     end
+  rescue StandardError => e
+    render json: { "errors": e.message }, status: :bad_request
   end
 
   def play
-    game_record = FindGameService.call(params[:id])
-    engine = CreateWebGameEngineService.call(game_record)
-    play_game(engine, game_record)
-    render json: get_response(engine, game_record)
+    ActiveRecord::Base.transaction do
+      game_record = FindGameService.call(params[:id])
+      engine = CreateWebGameEngineService.call(game_record)
+      play_game(engine, game_record)
+      render json: get_response(engine, game_record)
+    end
+  rescue StandardError => e
+    render json: { "errors": e.message }, status: :bad_request
   end
 
   GAME_PARAMS = %i[language player_name symbol game_mode].freeze
