@@ -1,6 +1,8 @@
 require 'TicTacToe'
 
 class GamesController < ApplicationController
+  before_action :set_game, only: [:play]
+
   def index
     render json: { status: 'success' }
   end
@@ -9,21 +11,16 @@ class GamesController < ApplicationController
     game = CreateGameService.call(game_params, params[:board_size])
     if game.valid?
       game.save
-      render json: game, status: :created
+      json_response(game, :created)
     else
-      render json: { "errors": game.errors }, status: :unprocessable_entity
+      json_response({ "errors": game.errors }, :unprocessable_entity)
     end
-  rescue StandardError => e
-    render json: { "errors": e.message }, status: :bad_request
   end
 
   def play
-    game_record = FindGameService.call(params[:id])
-    engine = CreateWebGameEngineService.call(game_record)
-    play_game(engine, game_record)
-    render json: get_response(engine, game_record)
-  rescue StandardError => e
-    render json: { "errors": e.message }, status: :bad_request
+    engine = CreateWebGameEngineService.call(@game_record)
+    PlayGameService.new(engine, @game_record).call(params[:move].to_i)
+    json_response(get_response(engine, @game_record))
   end
 
   GAME_PARAMS = %i[language player_name symbol game_mode].freeze
@@ -34,12 +31,6 @@ class GamesController < ApplicationController
     params.require(:game).permit(GAME_PARAMS)
   end
 
-  def play_game(engine, game_record)
-    engine.play(game_record.symbol, params[:move].to_i)
-    game_record.board = engine.board
-    game_record.save
-  end
-
   def get_response(engine, game_record)
     response = {
       state: 'Ongoing'
@@ -48,5 +39,9 @@ class GamesController < ApplicationController
     response[:state] = result unless result.nil?
     response[:board] = game_record.board
     response
+  end
+
+  def set_game
+    @game_record = Game.find(params[:id])
   end
 end

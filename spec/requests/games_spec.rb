@@ -72,37 +72,9 @@ RSpec.describe GamesController do
       }
     end
     let(:game) { create(:game) }
-    it 'returns play ongoing if not finished' do
-      put "/games/#{game.id}/play", params: {"move": 1}, as: :json
+    it 'returns game state after applying move' do
+      put "/games/#{game.id}/play", params: { "move": 1 }, as: :json
       expect(response.parsed_body['state']).to eq('Ongoing')
-    end
-
-    context 'tests if there is a draw' do
-      it 'returns draw message if the game is tied' do
-        game.board = [['-', 'O', 'X'],
-                      %w[X O O],
-                      %w[O X X]]
-        game.save
-        put "/games/#{game.id}/play", params: { "move": '1' }, as: :json
-        expect(response.parsed_body['state']).to eq("It's a Draw")
-      end
-    end
-    context 'tests if there is a winner' do
-      let(:moves) do
-        [{
-          "move": 1
-        }, {
-          "move": 2
-        }, {
-          "move": 4
-        }]
-      end
-      it 'returns winner message if the game is won' do
-        moves.each do |play_params|
-          put "/games/#{game.id}/play", params: play_params, as: :json
-        end
-        expect(response.parsed_body['state']).to eq('Intelligent Computer won the game')
-      end
     end
 
     describe 'Validations' do
