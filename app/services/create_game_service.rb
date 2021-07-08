@@ -1,4 +1,4 @@
-class CreateGameService < ApplicationService
+class CreateGameService
   attr_reader :game_params, :board_size
 
   def initialize(game_params, board_size)

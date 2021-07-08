@@ -1,14 +1,12 @@
 require 'TicTacToe'
 
 class GamesController < ApplicationController
-  # before_action :set_game, only: [:play]
-
   def index
     render json: { status: 'success' }
   end
 
   def create
-    game = CreateGameService.call(game_params, params[:board_size])
+    game = CreateGameService.new(game_params, params[:board_size].to_i).call
     if game.valid?
       game.save
       json_response(game, :created)
@@ -18,7 +16,7 @@ class GamesController < ApplicationController
   end
 
   def play
-    engine = CreateWebGameEngineService.call(current_game)
+    engine = CreateWebGameEngineService.new(current_game).call
     PlayGameService.new(engine, current_game).call(params[:move].to_i)
     json_response(get_response(engine, current_game))
   end

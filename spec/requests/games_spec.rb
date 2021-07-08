@@ -44,7 +44,7 @@ RSpec.describe GamesController do
       it 'validates board size to be integer' do
         game_params[:board_size] = 'X'
         post '/games', params: game_params, as: :json
-        expect(response.parsed_body['errors']).to eq('no implicit conversion of String into Integer')
+        expect(response.parsed_body['errors']).to eq({ 'board' => ["can't be blank"] })
       end
 
       it 'validates the game_mode to either be 1 or 2' do
@@ -86,6 +86,7 @@ RSpec.describe GamesController do
 
       it 'validates the player move' do
         put "/games/#{game.id}/play", params: { "move": 10 }, as: :json
+        p response.parsed_body
         expect(response.parsed_body['errors']).to eq('Invalid move')
       end
     end
