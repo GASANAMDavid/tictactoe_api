@@ -30,6 +30,8 @@ gem 'nokogiri', '~>1.8.5'
 
 gem 'rubocop', '~>1.17.0'
 
+gem 'rack-cors'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
