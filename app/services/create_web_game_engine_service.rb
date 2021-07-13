@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'TicTacToe'
+require 'tictactoe'
 
 class CreateWebGameEngineService
   attr_reader :game_record

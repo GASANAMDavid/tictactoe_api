@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'TicTacToe'
+require 'tictactoe'
 require 'rails_helper'
 
 RSpec.describe PlayGameService do
