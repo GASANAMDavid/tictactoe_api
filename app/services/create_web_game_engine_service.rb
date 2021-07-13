@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'TicTacToe'
 
-class CreateWebGameEngineService < ApplicationService
+class CreateWebGameEngineService
   attr_reader :game_record
 
   def initialize(game_record)

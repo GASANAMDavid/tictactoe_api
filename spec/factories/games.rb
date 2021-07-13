@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :game do
+    id { 1 }
     language { 'en' }
     player_name { 'David' }
     symbol { 'X' }
