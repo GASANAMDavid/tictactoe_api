@@ -24,7 +24,7 @@ class GamesController < ApplicationController
   end
 
   def translate
-    json_response(TicTacToe::SetLanguages.language_translations(params[:language]))
+    json_response(TicTacToe::SetLanguages.language_translations(params['language']))
   end
 
   GAME_PARAMS = %i[language player_name symbol game_mode].freeze
