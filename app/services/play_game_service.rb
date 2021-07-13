@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PlayGameService
   attr_reader :engine, :game_record
 

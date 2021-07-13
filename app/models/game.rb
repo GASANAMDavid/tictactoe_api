@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Game < ApplicationRecord
   validates :language, presence: true
   validates :player_name, presence: true

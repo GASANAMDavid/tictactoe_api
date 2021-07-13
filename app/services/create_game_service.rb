@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateGameService
   attr_reader :game_params, :board_size
 

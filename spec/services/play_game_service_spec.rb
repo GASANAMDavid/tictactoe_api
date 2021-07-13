@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'TicTacToe'
 require 'rails_helper'
 
