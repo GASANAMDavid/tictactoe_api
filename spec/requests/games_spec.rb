@@ -88,7 +88,6 @@ RSpec.describe GamesController do
 
       it 'validates the player move' do
         put "/games/#{game.id}/play", params: { "move": 10 }, as: :json
-        p response.parsed_body
         expect(response.parsed_body['errors']).to eq('Invalid move')
       end
     end
