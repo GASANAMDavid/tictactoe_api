@@ -92,22 +92,5 @@ RSpec.describe GamesController do
       end
     end
   end
-
-  describe '#traslate' do
-    it 'returns :ok status code' do
-      post '/games/1/translate', params: { 'language': 'fr' }, as: :json
-      expect(response).to have_http_status(:ok)
-    end
-
-    it 'raises an error if locale is invalid' do
-      post '/games/1/translate', params: { 'language': 'hello' }, as: :json
-      expect(response.parsed_body['errors']).to eq('No translations found for `hello`')
-    end
-
-    it 'returns an object containing translations if locale is valid' do
-      post '/games/1/translate', params: { 'language': 'fr' }
-      expect(response.parsed_body['welcomeMessage']).to eq('Bienvenue au Jeu de TIC TAC ORTEIL')
-      expect(response.parsed_body['gameMode']).to eq('Modes de jeu')
-    end
-  end
+  
 end
