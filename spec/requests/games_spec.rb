@@ -92,5 +92,4 @@ RSpec.describe GamesController do
       end
     end
   end
-  
 end

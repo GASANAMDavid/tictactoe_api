@@ -1,2 +1,4 @@
 AllCops:
   SuggestExtensions: false
+Metrics/BlockLength:
+  enabled: false

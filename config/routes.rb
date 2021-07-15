@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     put :play, on: :member
   end
 
-  get 'translations/:language', to: "translations#index"
+  get 'translations/:language', to: 'translations#index'
 end
