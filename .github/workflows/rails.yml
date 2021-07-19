@@ -28,14 +28,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Set up Ruby
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: 3.0.1
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
-          ruby-version: 3.0.1
+          node-version: 15.14.0
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          bundler-cache: true
       - name: Install dependencies
         run: |
           sudo apt-get -yqq install libpq-dev build-essential libcurl4-openssl-dev
