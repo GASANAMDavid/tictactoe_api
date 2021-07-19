@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'TicTacToe'
+require 'tictactoe'
 
 class GamesController < ApplicationController
   def index
@@ -32,12 +32,11 @@ class GamesController < ApplicationController
   end
 
   def get_response(engine, game_record)
-    response = {
-      state: 'Ongoing'
-    }
-    result = engine.check_status(game_record.symbol)
-    response[:state] = result unless result.nil?
+    response = {}
+    response[:state] = engine.check_status(game_record.symbol)
     response[:board] = game_record.board
+    response[:opponent] = engine.opponent_player.name
+    response[:opponentSymbol] = engine.opponent_player.symbol
     response
   end
 

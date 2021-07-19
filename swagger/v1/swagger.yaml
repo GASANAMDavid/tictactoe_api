@@ -59,6 +59,19 @@ paths:
                   type: string
               required:
               - move
+  "/translations/{language}":
+    get:
+      summary: retrives translations from the tictactoe gem used by the API given
+        language choice
+      parameters:
+      - name: language
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: translations available
 servers:
 - url: http://{defaultHost}
   variables:

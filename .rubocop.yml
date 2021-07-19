@@ -1,2 +1,7 @@
 AllCops:
   SuggestExtensions: false
+Metrics/BlockLength:
+  IgnoredMethods:
+    - context
+    - describe
+    - it
