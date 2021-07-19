@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.1'
-gem 'tictactoe', '~>1.5.1', git: 'https://github.com/gasanamdavid/TicTacToe'
+gem 'tictactoe', '~>1.6.0', git: 'https://github.com/gasanamdavid/TicTacToe'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
@@ -29,8 +29,6 @@ gem 'rswag-api'
 gem 'rswag-ui'
 
 gem 'nokogiri', '~>1.8.5'
-
-gem 'rubocop', '~>1.17.0'
 
 gem 'rack-cors'
 

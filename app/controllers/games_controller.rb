@@ -36,7 +36,7 @@ class GamesController < ApplicationController
     response[:state] = engine.check_status(game_record.symbol)
     response[:board] = game_record.board
     response[:opponent] = engine.opponent_player.name
-    response[:opponent_symbol] = engine.opponent_player.symbol
+    response[:opponentSymbol] = engine.opponent_player.symbol
     response
   end
 

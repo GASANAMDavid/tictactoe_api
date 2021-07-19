@@ -1,4 +1,7 @@
 AllCops:
   SuggestExtensions: false
 Metrics/BlockLength:
-  enabled: false
+  IgnoredMethods:
+    - context
+    - describe
+    - it

@@ -76,7 +76,7 @@ RSpec.describe GamesController do
     let(:game) { create(:game) }
     it 'returns game state after applying move' do
       put "/games/#{game.id}/play", params: { "move": 1 }, as: :json
-      expect(response.parsed_body['state']).to eq('Ongoing')
+      expect(response.parsed_body['state']['message']).to eq('Ongoing')
     end
 
     describe 'Validations' do
