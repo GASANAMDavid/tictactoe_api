@@ -51,7 +51,4 @@ RSpec.describe 'api/games', type: :request do
       end
     end
   end
-
-  describe '#index' do
-  end
 end
