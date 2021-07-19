@@ -35,7 +35,7 @@ jobs:
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
         with:
-          bundler-cache: true
+          ruby-version: 3.0.1
       - name: Install dependencies
         run: |
           sudo apt-get -yqq install libpq-dev build-essential libcurl4-openssl-dev
