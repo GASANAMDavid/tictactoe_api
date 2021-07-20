@@ -1,8 +1,9 @@
 GIT
   remote: https://github.com/gasanamdavid/TicTacToe
-  revision: 970c60e7dc806362b603cabdfbb9dfb334fa05d6
+  revision: 44a8e1c223de4125f1e41bc97fd9e85d461175d4
+  branch: alpha_beta_pruning
   specs:
-    tictactoe (1.6.0)
+    tictactoe (1.7.0)
       bundler (~> 2.2.16)
       dotenv (~> 2.1, >= 2.1.1)
       i18n (~> 1.8, >= 1.8.10)
@@ -283,7 +284,7 @@ DEPENDENCIES
   rswag-ui
   shoulda-matchers
   spring
-  tictactoe (~> 1.6.0)!
+  tictactoe (~> 1.7.0)!
   travis
   tzinfo-data
 

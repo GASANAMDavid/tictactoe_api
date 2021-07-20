@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '~>3.0.1'
-gem 'tictactoe', '~>1.6.0', git: 'https://github.com/gasanamdavid/TicTacToe'
+gem 'tictactoe', '~>1.7.0', git: 'https://github.com/gasanamdavid/TicTacToe', branch: 'alpha_beta_pruning'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
