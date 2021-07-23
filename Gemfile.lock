@@ -1,7 +1,6 @@
 GIT
   remote: https://github.com/gasanamdavid/TicTacToe
-  revision: 44a8e1c223de4125f1e41bc97fd9e85d461175d4
-  branch: alpha_beta_pruning
+  revision: fcb6215f567a01f08c527faa2494f219d4b22ebc
   specs:
     tictactoe (1.7.0)
       bundler (~> 2.2.16)
