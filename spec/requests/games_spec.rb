@@ -17,11 +17,11 @@ RSpec.describe GamesController do
     end
     let(:game_params) do
       {
-        "language": 'fr',
-        "player_name": 'Gasana',
-        "game_mode": 2,
-        "board_size": 3,
-        "symbol": 'X'
+        language: 'fr',
+        player_name: 'Gasana',
+        game_mode: 2,
+        board_size: 3,
+        symbol: 'X'
       }
     end
     it 'returns success response' do
@@ -66,30 +66,38 @@ RSpec.describe GamesController do
     let(:web_engine) { instance_double(TicTacToe::WebEngine) }
     let(:game_params) do
       {
-        "language": 'fr',
-        "player_name": 'Manzi',
-        "game_mode": 2,
-        "board_size": 3,
-        "symbol": 'X'
+        language: 'fr',
+        player_name: 'Manzi',
+        game_mode: 2,
+        board_size: 3,
+        symbol: 'X'
       }
     end
     let(:game) { create(:game) }
     it 'returns game state after applying move' do
-      put "/games/#{game.id}/play", params: { "move": 1 }, as: :json
+      put "/games/#{game.id}/play", params: { move: 1 }, as: :json
       expect(response.parsed_body['state']['message']).to eq('Ongoing')
     end
 
     describe 'Validations' do
       it 'validates the game id' do
         id = 0
-        put "/games/#{id}/play", params: { "move": 1 }, as: :json
+        put "/games/#{id}/play", params: { move: 1 }, as: :json
         expect(response.parsed_body['errors']).to eq("Couldn't find Game with 'id'=#{id}")
       end
 
       it 'validates the player move' do
-        put "/games/#{game.id}/play", params: { "move": 10 }, as: :json
+        put "/games/#{game.id}/play", params: { move: 10 }, as: :json
         expect(response.parsed_body['errors']).to eq('Invalid move')
       end
+    end
+  end
+
+  describe '#reset' do
+    let(:game) { create(:game, board: [%w[X O X], %w[O X O], %w[X O X]]) }
+    it 'resets the board of the game' do
+      put "/games/#{game.id}/reset"
+      expect(response.parsed_body['board']).to eq([%w[- - -], %w[- - -], %w[- - -]])
     end
   end
 end
