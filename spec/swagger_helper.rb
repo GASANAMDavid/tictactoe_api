@@ -27,7 +27,7 @@ RSpec.configure do |config|
           url: 'http://{defaultHost}',
           variables: {
             defaultHost: {
-              default: ENV['HOME_URL']
+              default: 'manzi-tictactoe-api.herokuapp.com'
             }
           }
         }
