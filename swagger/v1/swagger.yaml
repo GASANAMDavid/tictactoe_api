@@ -73,7 +73,7 @@ paths:
         '200':
           description: translations available
 servers:
-- url: http://{defaultHost}
+- url: https://{defaultHost}
   variables:
     defaultHost:
       default: manzi-tictactoe-api.herokuapp.com
