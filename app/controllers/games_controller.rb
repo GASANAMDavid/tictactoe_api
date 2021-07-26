@@ -13,7 +13,7 @@ class GamesController < ApplicationController
       game.save
       json_response(game, :created)
     else
-      json_response({ "errors": game.errors }, :unprocessable_entity)
+      json_response({ errors: game.errors }, :unprocessable_entity)
     end
   end
 
@@ -21,6 +21,14 @@ class GamesController < ApplicationController
     engine = CreateWebGameEngineService.new(current_game).call
     PlayGameService.new(engine, current_game).call(params[:move].to_i)
     json_response(get_response(engine, current_game))
+  end
+
+  def reset
+    game = Game.find(params[:id])
+    new_board = TicTacToe::GameSetUp.create_board(game.board.length).board
+    game.board = new_board
+    game.save
+    json_response({ board: game.board })
   end
 
   GAME_PARAMS = %i[language player_name symbol game_mode].freeze

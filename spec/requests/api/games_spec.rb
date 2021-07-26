@@ -52,6 +52,17 @@ RSpec.describe 'api/games', type: :request do
     end
   end
 
-  describe '#index' do
+  describe '#reset' do
+    path '/games/{id}/reset' do
+      put "Resets the board of game registered on a record with id #{id}" do
+        produces 'application/json'
+        consumes 'application/json'
+        parameter name: :id, in: :path, type: :string
+        response '200', 'board reset' do
+          let(:id) { FactoryBot.create(:game).id }
+          run_test!
+        end
+      end
+    end
   end
 end
