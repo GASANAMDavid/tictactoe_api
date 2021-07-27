@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '~>3.0.1'
-gem 'tictactoe', '~>1.7.0', git: 'https://github.com/gasanamdavid/TicTacToe'
+gem 'tictactoe', '~>1.7.1', git: 'https://github.com/gasanamdavid/TicTacToe'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
@@ -20,6 +20,8 @@ gem 'puma', '~> 5.0'
 # gem 'bcrypt', '~> 3.1.7'
 # use dotenv for env variables
 gem 'dotenv-rails'
+
+gem 'simplecov'
 
 # Use travis for continous integration
 gem 'travis'
