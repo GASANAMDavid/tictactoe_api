@@ -8,7 +8,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    game = CreateGameService.new(game_params, params[:board_size].to_i).call
+    game = CreateGame.new(game_params, params[:board_size].to_i).call
     if game.valid?
       game.save
       json_response(game, :created)
@@ -18,8 +18,8 @@ class GamesController < ApplicationController
   end
 
   def play
-    engine = CreateWebGameEngineService.new(current_game).call
-    PlayGameService.new(engine, current_game).call(params[:move].to_i)
+    engine = CreateWebGameEngine.new(current_game).call
+    PlayGame.new(engine, current_game).call(params[:move].to_i)
     json_response(get_response(engine, current_game))
   end
 

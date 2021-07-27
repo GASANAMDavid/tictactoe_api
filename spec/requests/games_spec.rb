@@ -11,7 +11,7 @@ RSpec.describe GamesController do
     end
   end
   describe '#create' do
-    let(:create_game) { instance_double(CreateGameService) }
+    let(:create_game) { instance_double(CreateGame) }
     before do
       allow(create_game).to receive(:call).and_return(game)
     end
@@ -61,8 +61,7 @@ RSpec.describe GamesController do
   end
 
   describe '#play' do
-    let(:find_game) { instance_double(FindGameService) }
-    let(:create_game_engine) { instance_double(CreateWebGameEngineService) }
+    let(:create_game_engine) { instance_double(CreateWebGameEngine) }
     let(:web_engine) { instance_double(TicTacToe::WebEngine) }
     let(:game_params) do
       {

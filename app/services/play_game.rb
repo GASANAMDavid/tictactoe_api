@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PlayGameService
+class PlayGame
   attr_reader :engine, :game_record
 
   def initialize(engine, game_record)

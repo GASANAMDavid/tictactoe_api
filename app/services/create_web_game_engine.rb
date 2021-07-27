@@ -2,7 +2,7 @@
 
 require 'tictactoe'
 
-class CreateWebGameEngineService
+class CreateWebGameEngine
   attr_reader :game_record
 
   def initialize(game_record)

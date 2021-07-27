@@ -3,7 +3,7 @@
 require 'tictactoe'
 require 'rails_helper'
 
-RSpec.describe PlayGameService do
+RSpec.describe PlayGame do
   let(:game) { create(:game) }
   let(:game_engine) { instance_double(TicTacToe::WebEngine) }
   before do
